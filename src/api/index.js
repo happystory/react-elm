@@ -2,8 +2,14 @@ import axios from 'axios';
 
 axios.defaults.baseURL = process.env.PUBLIC_URL;
 
-export const getGoods = () => axios.get('/api/goods');
+const getGoods = () => axios.get('/api/goods.json');
 
-export const getSeller = () => axios.get('/api/seller');
+const getSeller = () => axios.get('/api/seller.json');
 
-export const getRatings = () => axios.get('/api/ratings');
+const getRatings = () => axios.get('/api/ratings.json');
+
+export default {
+  getGoods,
+  getSeller,
+  getRatings
+};

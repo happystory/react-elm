@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   HashRouter as Router,
   Route,
@@ -12,10 +12,23 @@ import Ratings from './views/Ratings/Ratings';
 import Seller from './views/Seller/Seller';
 import './App.scss';
 
+import MyAPI from './api';
+
 const App = () => {
+  const [seller, setSeller] = useState(null);
+
+  useEffect(() => {
+    async function fetchData() {
+      const { data } = await MyAPI.getSeller();
+      setSeller(data);
+    }
+
+    fetchData();
+  }, []);
+
   return (
     <Router>
-      <Header />
+      <Header seller={seller} />
       <div className='tab border-1px'>
         <div className='tab-item'>
           <NavLink to='/goods'>商品</NavLink>
