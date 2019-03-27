@@ -1,9 +1,3 @@
-// @mixin link-colors($normal, $hover, $visited) {
-//   color: $normal;
-//   &:hover { color: $hover; }
-//   &:visited { color: $visited; }
-// }
-
 @mixin border-1px($color) {
   position: relative;
   &:after {
@@ -14,5 +8,12 @@
     width: 100%;
     border-top: 1px solid $color;
     content: "";
+  }
+}
+
+@mixin bg-image($url) {
+  background-image: url($url + '@2x.png');
+  @media (-webkit-min-device-ratio: 3), (min-device-ratio: 3) {
+    background-image: url($url + '@3x.png');
   }
 }

@@ -15,7 +15,7 @@ import './App.scss';
 import MyAPI from './api';
 
 const App = () => {
-  const [seller, setSeller] = useState(null);
+  const [seller, setSeller] = useState({});
 
   useEffect(() => {
     async function fetchData() {
