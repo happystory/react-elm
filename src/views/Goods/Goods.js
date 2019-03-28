@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import BScroll from 'better-scroll';
 
 import MyAPI from '../../api';
 import { classMap } from '../../config/constants';
@@ -8,12 +9,23 @@ import './style.scss';
 
 const Goods = ({ seller }) => {
   const [goods, setGoods] = useState([]);
+  const menuWrapperEl = useRef(null);
+  const foodsWrapper = useRef(null);
+
+  const initScroll = () => {
+    console.log(menuWrapperEl.current)
+    console.log(foodsWrapper.current)
+    const menuScroll = new BScroll(menuWrapperEl.current, {})
+    const foodsScroll = new BScroll(foodsWrapper.current, {})
+  }
 
   useEffect(() => {
     async function fetchData() {
       const { data } = await MyAPI.getGoods();
       setGoods(data);
-      console.log(data);
+      // console.log(data);
+      initScroll()
+      
     }
 
     fetchData();
@@ -21,7 +33,7 @@ const Goods = ({ seller }) => {
 
   return (
     <div className='goods'>
-      <div className='menu-wrapper'>
+      <div className='menu-wrapper' ref={menuWrapperEl}>
         <ul>
           {goods.map((item, index) => (
             <li key={index} className='menu-item'>
@@ -35,7 +47,7 @@ const Goods = ({ seller }) => {
           ))}
         </ul>
       </div>
-      <div className='foods-wrapper'>
+      <div className='foods-wrapper' ref={foodsWrapper}>
         <ul>
           {goods.map((item,index) => (
             <li className="food-list" key={index}>
@@ -59,7 +71,7 @@ const Goods = ({ seller }) => {
                         <div className="price">
                           <span className="now">￥{food.price}</span>
                           {
-                            food.oldPrice && <span className="old">{food.oldPrice}</span>
+                            food.oldPrice && <span className="old">￥{food.oldPrice}</span>
                           }
                         </div>
                       </div>

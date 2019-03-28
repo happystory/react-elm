@@ -10,13 +10,13 @@
   .menu-wrapper {
     flex: 0 0 80px;
     width: 80px;
+    height: 100%;
     background: #f3f5f7;
-    display: flex;
-    justify-content: center;
     .menu-item {
       display: table;
       height: 54px;
       width: 56px;
+      margin: 0 auto;
       line-height: 14px;
       .icon {
         display: inline-block;
@@ -49,6 +49,9 @@
         width: 56px;
         vertical-align: middle;
         @include border-1px(rgba(7,17,27,0.1));
+        &:last-child:after {
+          display: none;
+        }
       }
     }
   }
@@ -93,6 +96,9 @@
           font-size: 10px;
           color: rgb(147,153,159);
         }
+        .desc {
+          line-height: 12px;
+        }
         .extra {
           margin-bottom: 8px;
           .count {
@@ -102,7 +108,7 @@
         .price {
           font-weight: 700;
           .now {
-            margin-right: 18px;
+            margin-right: 8px;
             font-size: 14px;
             color: rgb(240, 20, 20);
           }
