@@ -4,9 +4,8 @@ import cx from 'classnames';
 import { CSSTransition } from 'react-transition-group';
 
 import Star from '../Star/Star';
+import { classMap } from '../../config/constants';
 import './style.scss';
-
-const classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee'];
 
 const Header = ({ seller }) => {
   const [detailShow, setDetailShow] = useState(false);
