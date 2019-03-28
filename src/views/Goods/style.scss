@@ -16,8 +16,20 @@
       display: table;
       height: 54px;
       width: 56px;
-      margin: 0 auto;
+      padding: 0 17px;
       line-height: 14px;
+      &:last-child {
+        .text:after {
+          display: none;
+        }
+      }
+      &.current {
+        position: relative;
+        margin-top: -1px;
+        z-index: 10;
+        background: #fff;
+        font-weight: 700;
+      }
       .icon {
         display: inline-block;
         position: relative;
@@ -49,9 +61,6 @@
         width: 56px;
         vertical-align: middle;
         @include border-1px(rgba(7,17,27,0.1));
-        &:last-child:after {
-          display: none;
-        }
       }
     }
   }
