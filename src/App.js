@@ -42,7 +42,7 @@ const App = () => {
       </div>
       <div className='content'>
         <Route exact path='/' render={() => <Redirect to='/goods' />} />
-        <Route path='/goods' component={Goods} />
+        <Route path='/goods' render={() => <Goods seller={seller} />} />
         <Route path='/ratings' component={Ratings} />
         <Route path='/seller' component={Seller} />
       </div>

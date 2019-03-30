@@ -5,6 +5,7 @@ import BScroll from 'better-scroll';
 
 import MyAPI from '../../api';
 import { classMap } from '../../config/constants';
+import Shopcart from '../../components/Shopcart/Shopcart';
 import './style.scss';
 
 const Goods = ({ seller }) => {
@@ -137,12 +138,13 @@ const Goods = ({ seller }) => {
           ))}
         </ul>
       </div>
+      <Shopcart deliveryPrice={seller.deliveryPrice} minPrice={seller.minPrice}/>
     </div>
   );
 };
 
 Goods.propTypes = {
-  seller: PropTypes.object
+  seller: PropTypes.object.isRequired
 };
 
 export default Goods;
