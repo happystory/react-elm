@@ -85,7 +85,13 @@
         font-size: 12px;
         text-align: center;
         font-weight: 700;
-        background: #2b333b;
+        &.not-enough {
+          background: #2b333b;
+        }
+        &.enough {
+          background: #00b43c;
+          color: #fff;
+        }
       }
     }
   }
